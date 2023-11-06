@@ -10,7 +10,7 @@ export class OrdersService {
   private jsonUrl = '../../assets/static/orders.json';
   constructor(private http: HttpClient) {}
 
-  getData(): Observable<IOrder[]> {
+  getOrders(): Observable<IOrder[]> {
     return this.http.get<IOrder[]>(this.jsonUrl);
   }
 }
