@@ -14,6 +14,7 @@
     </div>
     <div class="flex lg:hidden">
       <button
+        (click)="toggleSidebar()"
         type="button"
         class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-400"
       >
@@ -50,15 +51,47 @@
         >Portfolio</a
       >
     </div>
+
     <div class="hidden lg:flex lg:flex-1 lg:justify-end">
-      <a href="/login" class="text-sm font-semibold leading-6 text-gray-900"
+      <a
+        *ngIf="!isUserAuthenticated"
+        href="/login"
+        class="text-sm font-semibold leading-6 text-gray-900"
         >Log in <span aria-hidden="true">&rarr;</span></a
       >
+      <a
+        *ngIf="isUserAuthenticated"
+        href="/cart"
+        class="group -m-2 flex items-center p-2"
+      >
+        <svg
+          class="h-6 w-6 flex-shrink-0 text-gray-400 group-hover:text-gray-500"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor"
+          aria-hidden="true"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z"
+          />
+        </svg>
+        <span
+          class="ml-2 text-sm font-medium text-gray-700 group-hover:text-gray-800"
+          >0</span
+        >
+        <span class="sr-only">items in cart, view bag</span>
+      </a>
     </div>
   </nav>
-  <!-- Mobile menu, show/hide based on menu open state. -->
-  <div class="lg:hidden" role="dialog" aria-modal="true">
-    <!-- Background backdrop, show/hide based on slide-over state. -->
+  <div
+    *ngIf="isSidebarOpened"
+    class="lg:hidden"
+    role="dialog"
+    aria-modal="true"
+  >
     <div class="fixed inset-0 z-50"></div>
     <div
       class="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10"
@@ -71,7 +104,11 @@
             alt=""
           />
         </a>
-        <button type="button" class="-m-2.5 rounded-md p-2.5 text-gray-700">
+        <button
+          (click)="toggleSidebar()"
+          type="button"
+          class="-m-2.5 rounded-md p-2.5 text-gray-700"
+        >
           <svg
             class="h-6 w-6"
             fill="none"
@@ -92,32 +129,58 @@
         <div class="-my-6 divide-y divide-gray-500/10">
           <div class="space-y-2 py-6">
             <a
-              href="#"
+              href="/products"
               class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
-              >Product</a
+              >Products</a
             >
             <a
-              href="#"
+              href="/orders"
               class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
-              >Features</a
+              >Orders</a
             >
             <a
-              href="#"
+              href="/users"
               class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
-              >Marketplace</a
+              >Users</a
             >
             <a
-              href="#"
+              href="https://egt-soft.com"
               class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
-              >Company</a
+              >Portfolio</a
             >
           </div>
           <div class="py-6">
             <a
+              *ngIf="!isUserAuthenticated"
               href="/login"
               class="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
-              >Log in</a
+              >Log in <span aria-hidden="true">&rarr;</span></a
             >
+            <a
+              *ngIf="isUserAuthenticated"
+              href="/cart"
+              class="group -m-2 flex items-center p-2"
+            >
+              <svg
+                class="h-6 w-6 flex-shrink-0 text-gray-400 group-hover:text-gray-500"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                aria-hidden="true"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z"
+                />
+              </svg>
+              <span
+                class="ml-2 text-sm font-medium text-gray-700 group-hover:text-gray-800"
+                >0</span
+              >
+              <span class="sr-only">items in cart, view bag</span>
+            </a>
           </div>
         </div>
       </div>
