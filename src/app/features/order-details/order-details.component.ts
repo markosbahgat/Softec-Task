@@ -18,8 +18,6 @@ export class OrderDetailsComponent {
   }
 
   ngOnInit(): void {
-    this.ordersService.getOrder(this.id).subscribe((order) => {
-      this.orderDetail = order;
-    });
+    this.ordersService.getOrder(this.id).subscribe((order) => {});
   }
 }

@@ -7,6 +7,7 @@ interface IExtendedOrder extends IOrder {
 }
 @Component({
   selector: 'app-order-card',
+
   templateUrl: './order-card.component.html',
   styleUrls: ['./order-card.component.scss'],
 })
