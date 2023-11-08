@@ -1,4 +1,32 @@
-<div class="bg-white">
+<div
+  *ngIf="products.length === 0"
+  class="grid min-h-full place-items-center bg-white px-6 py-24 sm:py-32 lg:px-8"
+>
+  <div class="text-center">
+    <p class="text-base font-semibold text-indigo-600">!oops</p>
+    <h1
+      class="mt-4 text-3xl font-bold tracking-tight text-gray-900 sm:text-5xl"
+    >
+      You don't have any products in the cart, Yet!
+    </h1>
+    <p class="mt-6 text-base leading-7 text-gray-600">
+      Sorry, we couldn’t find any products in the cart, go to products to
+      continue shopping
+    </p>
+    <div class="mt-10 flex items-center justify-center gap-x-6">
+      <a
+        href="/products"
+        class="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+        >Go to Product</a
+      >
+      <a href="/" class="text-sm font-semibold text-gray-900"
+        >To Home <span aria-hidden="true">&rarr;</span></a
+      >
+    </div>
+  </div>
+</div>
+
+<div class="bg-white" *ngIf="products.length > 0">
   <div class="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:px-0">
     <h1
       class="text-center text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl"
@@ -49,16 +77,16 @@
                   <select
                     id="quantity-0"
                     name="quantity-0"
+                    (change)="onSelectChange($event, item.ProductId)"
                     class="block max-w-full rounded-md border border-gray-300 py-1.5 text-left text-base font-medium leading-5 text-gray-700 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500 sm:text-sm"
                   >
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                    <option value="6">6</option>
-                    <option value="7">7</option>
-                    <option value="8">8</option>
+                    <option
+                      [selected]="option === item.Quantity"
+                      *ngFor="let option of options"
+                      [value]="option"
+                    >
+                      {{ option }}
+                    </option>
                   </select>
                 </p>
                 <div class="ml-4">
@@ -75,7 +103,36 @@
           </li>
         </ul>
       </section>
-
+      <section class="my-10">
+        <div>
+          <dl class="space-y-4">
+            <div class="flex items-center justify-between">
+              <dt class="text-base font-medium text-gray-900">Order Details</dt>
+              <dd class="ml-4 text-base font-medium text-gray-900"></dd>
+            </div>
+          </dl>
+          <p class="mt-1 text-sm text-gray-500"></p>
+        </div>
+        <form class="mx-10">
+          <div>
+            <label
+              for="paymentType"
+              class="block text-sm font-medium leading-6 text-gray-900"
+              >Payment Type</label
+            >
+            <div class="mt-2">
+              <input
+                id="paymentType"
+                name="paymentType"
+                type="text"
+                autocomplete="paymentType"
+                required
+                class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+              />
+            </div>
+          </div>
+        </form>
+      </section>
       <section aria-labelledby="summary-heading" class="mt-10">
         <h2 id="summary-heading" class="sr-only">Order summary</h2>
 

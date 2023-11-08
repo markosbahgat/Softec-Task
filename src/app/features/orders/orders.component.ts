@@ -1,10 +1,7 @@
 import { DatePipe } from '@angular/common';
 import { Component } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-import { IOrder } from 'src/app/core/models/order.model';
-import { IProduct } from 'src/app/core/models/product.model';
-import { OrdersService } from 'src/app/core/services/orders.service';
-import { ProductsService } from 'src/app/core/services/products.service';
+import { Router } from '@angular/router';
+import { IOrder, IProduct, OrdersService, ProductsService } from 'app/core';
 interface IExtendedOrder extends IOrder {
   totalPrice: number;
 }
@@ -43,9 +40,12 @@ export class OrdersComponent {
               );
             }, 0),
             Products: item.Products.map((item) => {
-              return products.find(
-                (product) => product.ProductId === item.ProductId
-              ) as IProduct;
+              return {
+                ...(products.find(
+                  (product) => product.ProductId === item.ProductId
+                ) as IProduct),
+                Quantity: item.Quantity,
+              };
             }),
           };
         });

@@ -5,5 +5,6 @@ export interface IOrder {
   OrderDate: string;
   UserId: string;
   Products: IProduct[];
+
   PaymentType: string;
 }
