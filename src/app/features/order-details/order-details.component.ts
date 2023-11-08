@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { IOrder } from 'src/app/core/models/order.model';
 import { OrdersService } from 'src/app/core/services/orders.service';
 
 @Component({
@@ -9,6 +10,7 @@ import { OrdersService } from 'src/app/core/services/orders.service';
 })
 export class OrderDetailsComponent {
   id: number = 0;
+  orderDetail: IOrder | undefined;
   constructor(
     private route: ActivatedRoute,
     private ordersService: OrdersService
@@ -18,7 +20,7 @@ export class OrderDetailsComponent {
 
   ngOnInit(): void {
     this.ordersService.getOrder(this.id).subscribe((order) => {
-      console.log(order);
+      this.orderDetail = order;
     });
   }
 }
