@@ -1,27 +1,70 @@
-# SoftecTask
+<div align="center">
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.9.
+# Softec Task
 
-## Development server
+this is a **Simple Front End Application**, inspired by Softec Company.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+It has a quick (Fake) authentication , protected Routes, and Simple Data Displays.<br />
 
-## Code scaffolding
+</div>
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+![Client Preview](/src/assets/images/preview.png)
 
-## Build
+## Getting started
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+First of all clone the project by typing the following commend in the terminal:
 
-## Running unit tests
+```sh
+git clone https://github.com/markosbahgat/Softec-Task.git
+```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Installation
 
-## Running end-to-end tests
+### Step 1:
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+go to the project directory and enter the **Client** folder by typing:
 
-## Further help
+```sh
+cd Softec-Task && npm i
+```
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+### Step 2:
+
+then to run the project code just type:
+
+```sh
+npm start
+```
+
+now you should have a terminals that looks like this:
+
+![Terminal](/src/assets/images/terminal-preview.png)
+
+#### Live Demo For the Project on vercel:
+
+[![MarkosBahgata|](https://static.agilitycms.com/logos/full-logo-black-on-white-vercel_20200827182255_0.png)](https://softec-task.vercel.app/)
+
+## Technologies used
+
+- [Angular](https://angular.io/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Formik & Yup](https://www.chartjs.org/)
+- [TailWind-Css](https://tailwindcss.com/)
+- [Sass](https://sass-lang.com/)
+
+## Features set
+
+| Feature                                                             | Status |
+| ------------------------------------------------------------------- | ------ |
+| Very Basic Authentication (Sign In Form)                            | ✅     |
+| Landing Page UI                                                     | ✅     |
+| Adding Products to cart                                             | ✅     |
+| Using Local Storage to store data like (user-data..etc )            | ✅     |
+| Using TypeScript For Type Checking                                  | ✅     |
+| Clean Code and Reusable Components approach are applied to the code | ✅     |
+
+## Reach out for Markos Bahgat
+
+> [_Portofolio Website_](https://markosbahgat.com)  
+> [_LinkedIn Profile_](https://www.linkedin.com/in/markos-bahgat-9a7178216)  
+> [_Phone Number Or WhatsApp_]() : ` +201286993320`
