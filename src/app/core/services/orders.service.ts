@@ -13,6 +13,15 @@ export class OrdersService {
   getOrders(): Observable<IOrder[]> {
     return this.http.get<IOrder[]>(this.jsonUrl);
   }
+  addOrder(order: IOrder) {
+    const newOrder: Partial<IOrder> = {
+      OrderId: Math.random() * 1000,
+      PaymentType: order.PaymentType,
+      Products: order.Products,
+      OrderDate: new Date().toISOString(),
+      UserId: localStorage.getItem('userId') as string,
+    };
+  }
   getOrder(id: number): Observable<IOrder> {
     return this.http
       .get<IOrder[]>(this.jsonUrl)

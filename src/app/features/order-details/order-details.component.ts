@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { IOrder } from 'src/app/core/models/order.model';
-import { OrdersService } from 'src/app/core/services/orders.service';
+import { IOrder, OrdersService } from 'app/core';
 
 @Component({
   selector: 'app-order-details',

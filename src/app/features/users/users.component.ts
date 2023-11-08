@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import { IUser } from 'src/app/core/models/user.model';
-import { UsersService } from 'src/app/core/services/users.service';
+import { IUser, UsersService } from 'app/core';
 
 @Component({
   selector: 'app-users',

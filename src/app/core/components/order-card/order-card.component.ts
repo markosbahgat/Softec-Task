@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { IOrder } from '../../models/order.model';
+import { IOrder } from 'app/core';
 import { Router } from '@angular/router';
 
 interface IExtendedOrder extends IOrder {
@@ -15,6 +15,7 @@ export class OrderCardComponent {
   order!: IExtendedOrder;
 
   constructor(private router: Router) {}
+
   toOrderPage(id: number) {
     this.router.navigate(['/order/' + id]);
   }

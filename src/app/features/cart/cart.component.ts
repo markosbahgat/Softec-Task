@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { IProduct } from 'src/app/core/models/product.model';
-import { CartService } from 'src/app/core/services/cart.service';
+import { IProduct, CartService } from 'app/core';
 
 @Component({
   selector: 'app-cart',
@@ -10,16 +9,23 @@ import { CartService } from 'src/app/core/services/cart.service';
 export class CartComponent implements OnInit {
   products: IProduct[] = [];
   total: number = 0;
+  options: number[] = [...Array(10).keys()];
+  selectedOption: number = this.options[0];
   constructor(private cartService: CartService) {}
   removeProductFromCart(id: number) {
     this.cartService.removeFromCart(id);
+  }
+  createNewOrder() {}
+  onSelectChange(event: Event, id: number) {
+    const selectedValue = Number((event.target as HTMLSelectElement).value);
+    this.cartService.changeQuantity(id, selectedValue);
   }
   ngOnInit(): void {
     this.cartService.getCartProducts().subscribe((state) => {
       this.products = state;
     });
     this.cartService.getTotalPrice().subscribe((state) => {
-      this.total = state;
+      this.total = Math.round(state);
     });
   }
 }
