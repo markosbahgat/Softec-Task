@@ -11,7 +11,11 @@ export class CartService {
   private products: BehaviorSubject<IProduct[]> = new BehaviorSubject<
     IProduct[]
   >(JSON.parse(localStorage.getItem('cartProducts') || '[]'));
-  private totalPrice: BehaviorSubject<number> = new BehaviorSubject<number>(0);
+  private totalPrice: BehaviorSubject<number> = new BehaviorSubject<number>(
+    (
+      JSON.parse(localStorage.getItem('cartProducts') || '[]') as IProduct[]
+    ).reduce((a, b) => a + b.ProductPrice, 0)
+  );
 
   products$ = this.products.asObservable();
   totalPrice$ = this.totalPrice.asObservable();

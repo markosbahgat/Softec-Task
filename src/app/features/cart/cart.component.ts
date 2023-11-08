@@ -3,13 +3,14 @@ import { IProduct, CartService } from 'app/core';
 
 @Component({
   selector: 'app-cart',
+  providers: [CartService],
   templateUrl: './cart.component.html',
   styleUrls: ['./cart.component.scss'],
 })
 export class CartComponent implements OnInit {
   products: IProduct[] = [];
   total: number = 0;
-  options: number[] = [...Array(10).keys()];
+  options: number[] = [...Array(10).keys()].slice(1, 10);
   selectedOption: number = this.options[0];
   constructor(private cartService: CartService) {}
   removeProductFromCart(id: number) {
