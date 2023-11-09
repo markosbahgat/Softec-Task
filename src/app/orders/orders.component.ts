@@ -22,6 +22,10 @@ export class OrdersComponent {
   toOrderPage(id: number) {
     this.router.navigate(['/order/' + id]);
   }
+  /**
+   * Initializes the component and fetches the orders and products data from the server.
+   * Updates the orders array with the fetched data and calculates the total price for each order.
+   */
   ngOnInit(): void {
     this.ordersService.getOrders().subscribe((ordersData: IOrder[]) => {
       this.productsService.getProducts().subscribe((products) => {

@@ -3,6 +3,10 @@ import { IProduct } from '../models/product.model';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { IOrder } from '../models';
 
+/**
+ * Service responsible for managing the cart of products.
+ */
+
 @Injectable({
   providedIn: 'root',
 })

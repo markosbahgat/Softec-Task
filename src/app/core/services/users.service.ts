@@ -3,6 +3,9 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { IUser } from '../models/user.model';
 
+/**
+ * Service for retrieving users data from a JSON file.
+ */
 @Injectable({
   providedIn: 'root',
 })

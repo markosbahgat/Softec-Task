@@ -8,7 +8,7 @@ import { IProduct, ProductsService } from 'app/core';
   styleUrls: ['./products.component.scss'],
 })
 export class ProductsComponent {
-  products: IProduct[] = [];
+  public products: IProduct[] = [];
 
   constructor(private productsService: ProductsService) {}
 

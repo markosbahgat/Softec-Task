@@ -5,6 +5,10 @@ import { IOrder } from '../models/order.model';
 import { ProductsService } from './products.service';
 import { IProduct } from '../models';
 
+/**
+ * Service responsible for managing orders.
+ */
+
 @Injectable({
   providedIn: 'root',
 })

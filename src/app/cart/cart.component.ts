@@ -16,7 +16,6 @@ export class CartComponent implements OnInit {
   removeProductFromCart(id: number) {
     this.cartService.removeFromCart(id);
   }
-  createNewOrder() {}
   onSelectChange(event: Event, id: number) {
     const selectedValue = Number((event.target as HTMLSelectElement).value);
     this.cartService.changeQuantity(id, selectedValue);

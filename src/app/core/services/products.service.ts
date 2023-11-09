@@ -3,6 +3,9 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { IProduct } from '../models/product.model';
 
+/**
+ * Service responsible for managing products.
+ */
 @Injectable({
   providedIn: 'root',
 })

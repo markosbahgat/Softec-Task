@@ -4,7 +4,7 @@
     aria-label="Global"
   >
     <div class="flex lg:flex-1">
-      <a href="#" class="-m-1.5 p-1.5">
+      <a routerLink="/" class="-m-1.5 p-1.5">
         <img
           class="h-8 w-auto"
           src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"
@@ -35,13 +35,19 @@
       </button>
     </div>
     <div class="hidden lg:flex lg:gap-x-12">
-      <a href="/products" class="text-sm font-semibold leading-6 text-gray-900"
+      <a
+        routerLink="/products"
+        class="text-sm font-semibold leading-6 text-gray-900"
         >Products</a
       >
-      <a href="/orders" class="text-sm font-semibold leading-6 text-gray-900"
+      <a
+        routerLink="/orders"
+        class="text-sm font-semibold leading-6 text-gray-900"
         >Orders</a
       >
-      <a href="/users" class="text-sm font-semibold leading-6 text-gray-900"
+      <a
+        routerLink="/users"
+        class="text-sm font-semibold leading-6 text-gray-900"
         >Users</a
       >
       <a
@@ -55,13 +61,13 @@
     <div class="hidden lg:flex lg:flex-1 lg:justify-end">
       <a
         *ngIf="!isUserAuthenticated"
-        href="/login"
+        routerLink="/login"
         class="text-sm font-semibold leading-6 text-gray-900"
         >Log in <span aria-hidden="true">&rarr;</span></a
       >
       <a
         *ngIf="isUserAuthenticated"
-        href="/cart"
+        routerLink="/cart"
         class="group -m-2 flex items-center p-2"
       >
         <svg
@@ -97,7 +103,7 @@
       class="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10"
     >
       <div class="flex items-center justify-between">
-        <a href="#" class="-m-1.5 p-1.5">
+        <a routerLink="/" class="-m-1.5 p-1.5">
           <img
             class="h-8 w-auto"
             src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
@@ -129,17 +135,17 @@
         <div class="-my-6 divide-y divide-gray-500/10">
           <div class="space-y-2 py-6">
             <a
-              href="/products"
+              routerLink="/products"
               class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
               >Products</a
             >
             <a
-              href="/orders"
+              routerLink="/orders"
               class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
               >Orders</a
             >
             <a
-              href="/users"
+              routerLink="/users"
               class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
               >Users</a
             >
@@ -152,13 +158,13 @@
           <div class="py-6">
             <a
               *ngIf="!isUserAuthenticated"
-              href="/login"
+              routerLink="/login"
               class="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
               >Log in <span aria-hidden="true">&rarr;</span></a
             >
             <a
               *ngIf="isUserAuthenticated"
-              href="/cart"
+              routerLink="/cart"
               class="group -m-2 flex items-center p-2"
             >
               <svg
