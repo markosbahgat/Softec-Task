@@ -1,15 +1,16 @@
 import { Component, OnInit } from '@angular/core';
-import { IProduct, CartService } from 'app/core';
+import { CartService } from 'app/cart/services/cart.service';
+import { IProduct } from 'app/core';
 
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss'],
 })
-export class NavbarComponent implements OnInit {
-  isUserAuthenticated: boolean = false;
-  isSidebarOpened: boolean = false;
-  products: IProduct[] = [];
+export class NavbarComponent {
+  public isUserAuthenticated: boolean = false;
+  public isSidebarOpened: boolean = false;
+  public products: IProduct[] = [];
   constructor(private cartService: CartService) {}
   toggleSidebar() {
     this.isSidebarOpened = !this.isSidebarOpened;

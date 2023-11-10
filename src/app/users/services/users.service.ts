@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { IUser } from '../models/user.model';
+import { IUser } from '../../core/models/user.model';
 
 /**
  * Service for retrieving users data from a JSON file.

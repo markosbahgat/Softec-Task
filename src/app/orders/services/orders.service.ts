@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Observable, map } from 'rxjs';
-import { IOrder } from '../models/order.model';
-import { ProductsService } from './products.service';
-import { IProduct } from '../models';
+import { IOrder } from '../../core/models/order.model';
+import { ProductsService } from '../../products/services/products.service';
+import { IProduct } from '../../core/models';
 
 /**
  * Service responsible for managing orders.

@@ -4,9 +4,9 @@ import {
   HttpTestingController,
 } from '@angular/common/http/testing';
 import { OrdersService } from './orders.service';
-import { ProductsService } from './products.service';
-import { IOrder } from '../models/order.model';
-import { IProduct } from '../models/product.model';
+import { ProductsService } from '../../products/services/products.service';
+import { IOrder } from '../../core/models/order.model';
+import { IProduct } from '../../core/models/product.model';
 import { Operator, Observable } from 'rxjs';
 
 describe('OrdersService', () => {

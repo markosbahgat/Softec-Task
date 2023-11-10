@@ -1,14 +1,16 @@
 import { DatePipe } from '@angular/common';
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { IOrder, IProduct, OrdersService, ProductsService } from 'app/core';
+import { IOrder, IProduct } from 'app/core';
+import { OrdersService } from './services/orders.service';
+import { ProductsService } from 'app/products/services/products.service';
 interface IExtendedOrder extends IOrder {
   totalPrice: number;
 }
 
 @Component({
   selector: 'app-orders',
-  providers: [DatePipe],
+  providers: [DatePipe, OrdersService],
   templateUrl: './orders.component.html',
   styleUrls: ['./orders.component.scss'],
 })

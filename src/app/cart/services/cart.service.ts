@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
-import { IProduct } from '../models/product.model';
+import { IProduct } from '../../core/models/product.model';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { IOrder } from '../models';
 
 /**
  * Service responsible for managing the cart of products.
@@ -16,9 +15,11 @@ export class CartService {
     IProduct[]
   >(JSON.parse(localStorage.getItem('cartProducts') || '[]'));
   private totalPrice: BehaviorSubject<number> = new BehaviorSubject<number>(
-    (
-      JSON.parse(localStorage.getItem('cartProducts') || '[]') as IProduct[]
-    ).reduce((a, b) => a + b.ProductPrice, 0)
+    this.products.value.reduce((a, b) => {
+      if (b.Quantity !== undefined) {
+        return a + b.ProductPrice * b.Quantity;
+      } else return a + b.ProductPrice * 1;
+    }, 0)
   );
 
   products$ = this.products.asObservable();
@@ -29,11 +30,13 @@ export class CartService {
   }
 
   getTotalPrice(): Observable<any> {
+    console.log(this.totalPrice.value);
     return this.totalPrice.asObservable();
   }
 
-  setState(newState: any): void {
+  setState(newState: IProduct[]): void {
     this.products.next(newState);
+    this.totalPrice.next(0);
     newState.forEach((item: IProduct) => {
       this.totalPrice.next(
         this.totalPrice.value + item.ProductPrice * item.Quantity
@@ -45,7 +48,11 @@ export class CartService {
     let products: IProduct[] = JSON.parse(
       localStorage.getItem('cartProducts') || '[]'
     );
-    products.push(item);
+    if (products.find((product) => product.ProductId === item.ProductId)) {
+      this.changeQuantity(item.ProductId, item.Quantity + 1);
+    } else {
+      products.push(item);
+    }
 
     this.setState(products);
   }
@@ -53,6 +60,7 @@ export class CartService {
     let products: IProduct[] = JSON.parse(
       localStorage.getItem('cartProducts') || '[]'
     );
+
     const newProducts = products.map((item: IProduct) => {
       if (item.ProductId === id) {
         return { ...item, Quantity: quantity };
@@ -63,15 +71,8 @@ export class CartService {
   }
 
   removeFromCart(id: number) {
-    const targetProduct = this.products.value.find(
-      (item: IProduct) => item.ProductId === id
-    ) as IProduct;
     this.setState(
       this.products.value.filter((item: IProduct) => item.ProductId !== id)
-    );
-    this.totalPrice.next(
-      this.totalPrice.value -
-        targetProduct.ProductPrice * targetProduct.Quantity
     );
   }
 }

@@ -1,8 +1,10 @@
 import { Component } from '@angular/core';
-import { IUser, UsersService } from 'app/core';
+import { IUser } from 'app/core';
+import { UsersService } from './services/users.service';
 
 @Component({
   selector: 'app-users',
+  providers: [UsersService],
   templateUrl: './users.component.html',
   styleUrls: ['./users.component.scss'],
 })

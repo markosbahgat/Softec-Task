@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
-import { IOrder, IProduct, OrdersService } from 'app/core';
+import { IOrder, IProduct } from 'app/core';
 import { Router } from '@angular/router';
+import { OrdersService } from 'app/orders/services/orders.service';
 
 interface IExtendedOrder extends IOrder {
   totalPrice: number;

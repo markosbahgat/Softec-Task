@@ -5,7 +5,7 @@ import {
   RouterStateSnapshot,
 } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
-import { AuthService } from '../services/auth.service';
+import { AuthService } from '../../login/services/auth.service';
 import { AuthGuard } from './auth.guard';
 
 describe('AuthGuard', () => {

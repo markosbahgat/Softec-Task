@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 import { BehaviorSubject } from 'rxjs';
-import { IProduct } from '../models/product.model';
+import { IProduct } from '../../core/models/product.model';
 import { CartService } from './cart.service';
 
 describe('CartService', () => {

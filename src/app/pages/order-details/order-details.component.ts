@@ -1,7 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { IOrder, OrdersService } from 'app/core';
+import { IOrder } from 'app/core';
+import { OrdersService } from 'app/orders/services/orders.service';
 
 @Component({
   standalone: true,

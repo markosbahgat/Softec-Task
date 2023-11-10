@@ -5,7 +5,7 @@ import {
   RouterStateSnapshot,
   Router,
 } from '@angular/router';
-import { AuthService } from 'app/core';
+import { AuthService } from 'app/login/services/auth.service';
 
 /**
  * A guard that checks if the user is authenticated before allowing access to protected routes.
