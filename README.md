@@ -4,7 +4,7 @@
 
 this is a **Simple Front End Application**, inspired by Softec Company.
 
-It has a quick (Fake) authentication , protected Routes, and Simple Data Displays.<br />
+It has quick (Fake) authentication, cart management, and protected Routes. <br />
 
 </div>
 
@@ -12,7 +12,7 @@ It has a quick (Fake) authentication , protected Routes, and Simple Data Display
 
 ## Getting started
 
-First of all clone the project by typing the following commend in the terminal:
+First of all clone the project by typing the following command in the terminal:
 
 ```sh
 git clone https://github.com/markosbahgat/Softec-Task.git
@@ -36,7 +36,7 @@ then to run the project code just type:
 npm start
 ```
 
-now you should have a terminals that looks like this:
+now you should have a terminal that looks like this:
 
 ![Terminal](/src/assets/images/terminal-preview.png)
 
@@ -56,12 +56,16 @@ now you should have a terminals that looks like this:
 
 | Feature                                                             | Status |
 | ------------------------------------------------------------------- | ------ |
-| Very Basic Authentication (Sign In Form)                            | ✅     |
+| Very Basic Authentication (Sign-In Form)                            | ✅     |
 | Landing Page UI                                                     | ✅     |
+| Feature Modularity                                                  | ✅     |
+| Lazy Loading Modules                                                | ✅     |
+| Standalone Components                                               | ✅     |
+| Guards for protecting routes                                        | ✅     |
 | Adding Products to cart                                             | ✅     |
 | Using Local Storage to store data like (user-data..etc )            | ✅     |
 | Using TypeScript For Type Checking                                  | ✅     |
-| Clean Code and Reusable Components approach are applied to the code | ✅     |
+| Clean Code and Reusable Components approach is applied to the code  | ✅     |
 
 ## Reach out for Markos Bahgat
 
