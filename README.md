@@ -63,6 +63,7 @@ now you should have a terminal that looks like this:
 | Standalone Components                                               | ✅     |
 | Guards for protecting routes                                        | ✅     |
 | Adding Products to cart                                             | ✅     |
+| Global and Server-Based Error Handling                              | ✅     |
 | Using Local Storage to store data like (user-data..etc )            | ✅     |
 | Using TypeScript For Type Checking                                  | ✅     |
 | Clean Code and Reusable Components approach is applied to the code  | ✅     |
