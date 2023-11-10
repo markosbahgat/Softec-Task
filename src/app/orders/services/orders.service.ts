@@ -27,7 +27,7 @@ export class OrdersService {
   getOrders(): Observable<IOrder[]> {
     return this.http.get<IOrder[]>(this.jsonUrl);
   }
-  addOrder(order: IOrder) {
+  addOrder(order: IOrder): void {
     const newOrder: Partial<IOrder> = {
       OrderId: Math.random() * 1000,
       PaymentType: order.PaymentType,
@@ -36,20 +36,20 @@ export class OrdersService {
       UserId: localStorage.getItem('userId') as string,
     };
   }
-  getSelectedProduct() {
+  getSelectedProduct(): IProduct | null {
     return this.selectedProduct.value;
   }
-  getPopUpState(): Observable<any> {
+  getPopUpState(): Observable<boolean> {
     return this.isProductPopUpOpened.asObservable();
   }
-  toggleProductPopUp() {
+  toggleProductPopUp(): void {
     this.isProductPopUpOpened.next(!this.isProductPopUpOpened.value);
   }
-  selectProduct(product: IProduct) {
+  selectProduct(product: IProduct): void {
     this.toggleProductPopUp();
     this.selectedProduct.next(product);
   }
-  getOrderProducts(products: { ProductId: number; Quantity: number }[]) {
+  getOrderProducts(products: { ProductId: number; Quantity: number }[]): void {
     products.map((item) => {
       return {
         ...this.productsService.getProducts().subscribe((state) => {

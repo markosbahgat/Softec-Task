@@ -14,10 +14,10 @@ export class ProductPopupComponent {
     private ordersService: OrdersService,
     private cartService: CartService
   ) {}
-  hideProduct() {
+  protected hideProduct(): void {
     this.ordersService.toggleProductPopUp();
   }
-  addToCart() {
+  protected addToCart(): void {
     this.cartService.addToCart(this.product as IProduct);
     this.hideProduct();
   }
