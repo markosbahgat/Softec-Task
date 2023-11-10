@@ -1,12 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { HomeComponent } from './features/home/home.component';
-import { OrdersComponent } from './features/orders/orders.component';
-import { OrderDetailsComponent } from './features/order-details/order-details.component';
-import { ProductsComponent } from './features/products/products.component';
-import { UsersComponent } from './features/users/users.component';
-import { LoginComponent } from './features/login/login.component';
-import { CartComponent } from './features/cart/cart.component';
+import { HomeComponent } from './pages/home/home.component';
+import { OrderDetailsComponent } from './pages/order-details/order-details.component';
+import { AuthGuard } from './core/guards/auth.guard';
 
 const routes: Routes = [
   {
@@ -15,27 +11,58 @@ const routes: Routes = [
   },
   {
     path: 'orders',
-    component: OrdersComponent,
+    loadChildren: () =>
+      import('./orders/orders.module').then((m) => m.OrdersModule),
   },
+
   {
     path: 'order/:id',
     component: OrderDetailsComponent,
   },
   {
     path: 'products',
-    component: ProductsComponent,
+    loadChildren: () =>
+      import('./products/products.module').then((m) => m.ProductsModule),
   },
   {
     path: 'users',
-    component: UsersComponent,
+    loadChildren: () =>
+      import('./users/users.module').then((m) => m.UsersModule),
+    canActivate: [AuthGuard],
   },
   {
     path: 'login',
-    component: LoginComponent,
+    loadChildren: () =>
+      import('./login/login.module').then((m) => m.LoginModule),
   },
   {
     path: 'cart',
-    component: CartComponent,
+    loadChildren: () => import('./cart/cart.module').then((m) => m.CartModule),
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'orders',
+    loadChildren: () =>
+      import('./orders/orders.module').then((m) => m.OrdersModule),
+  },
+  {
+    path: 'products',
+    loadChildren: () =>
+      import('./products/products.module').then((m) => m.ProductsModule),
+  },
+  {
+    path: 'users',
+    loadChildren: () =>
+      import('./users/users.module').then((m) => m.UsersModule),
+  },
+  {
+    path: 'cart',
+    loadChildren: () => import('./cart/cart.module').then((m) => m.CartModule),
+  },
+  {
+    path: 'login',
+    loadChildren: () =>
+      import('./login/login.module').then((m) => m.LoginModule),
   },
 ];
 @NgModule({

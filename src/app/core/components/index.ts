@@ -1,3 +1,3 @@
-export { ProductCardComponent } from './product-card/product-card.component';
-export { UserCardComponent } from './user-card/user-card.component';
-export { OrderCardComponent } from './order-card/order-card.component';
+export { FooterComponent } from './footer/footer.component';
+export { NavbarComponent } from './navbar/navbar.component';
+export { LayoutComponent } from './layout/layout.component';
