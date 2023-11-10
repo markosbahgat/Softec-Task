@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { IOrder } from 'app/core';
+import { IOrder, IProduct, OrdersService } from 'app/core';
 import { Router } from '@angular/router';
 
 interface IExtendedOrder extends IOrder {
@@ -12,11 +12,12 @@ interface IExtendedOrder extends IOrder {
   styleUrls: ['./order-card.component.scss'],
 })
 export class OrderCardComponent {
-  @Input()
-  order!: IExtendedOrder;
+  @Input() order!: IExtendedOrder;
 
-  constructor(private router: Router) {}
-
+  constructor(private router: Router, private ordersService: OrdersService) {}
+  viewProduct(product: IProduct) {
+    this.ordersService.selectProduct(product);
+  }
   toOrderPage(id: number) {
     this.router.navigate(['/order/' + id]);
   }

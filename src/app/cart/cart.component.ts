@@ -8,18 +8,9 @@ import { IProduct, CartService } from 'app/core';
   styleUrls: ['./cart.component.scss'],
 })
 export class CartComponent implements OnInit {
-  products: IProduct[] = [];
-  total: number = 0;
-  options: number[] = [...Array(10).keys()].slice(1, 10);
-  selectedOption: number = this.options[0];
+  public products: IProduct[] = [];
+  public total: number = 0;
   constructor(private cartService: CartService) {}
-  removeProductFromCart(id: number) {
-    this.cartService.removeFromCart(id);
-  }
-  onSelectChange(event: Event, id: number) {
-    const selectedValue = Number((event.target as HTMLSelectElement).value);
-    this.cartService.changeQuantity(id, selectedValue);
-  }
   ngOnInit(): void {
     this.cartService.getCartProducts().subscribe((state) => {
       this.products = state;

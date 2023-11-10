@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent {
   constructor(private formBuilder: FormBuilder, private router: Router) {}
-  checkoutForm = this.formBuilder.group({
+  public checkoutForm = this.formBuilder.group({
     email: '',
     password: '',
   });

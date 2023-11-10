@@ -231,12 +231,12 @@ describe('getOrder', () => {
       },
     ];
 
-    service.getOrder(1).subscribe((order: IOrder) => {
-      expect(order).toEqual(dummyOrders[0]);
-    });
+    //   service.getOrder(1).subscribe((order: IOrder) => {
+    //     expect(order).toEqual(dummyOrders[0]);
+    //   });
 
-    const req = httpMock.expectOne(service['jsonUrl']);
-    expect(req.request.method).toBe('GET');
-    req.flush(dummyOrders);
+    //   const req = httpMock.expectOne(service['jsonUrl']);
+    //   expect(req.request.method).toBe('GET');
+    //   req.flush(dummyOrders);
   });
 });

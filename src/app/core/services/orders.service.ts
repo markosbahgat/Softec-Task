@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, map } from 'rxjs';
+import { BehaviorSubject, Observable, map } from 'rxjs';
 import { IOrder } from '../models/order.model';
 import { ProductsService } from './products.service';
 import { IProduct } from '../models';
@@ -14,7 +14,11 @@ import { IProduct } from '../models';
 })
 export class OrdersService {
   private jsonUrl = '../../assets/static/orders.json';
+  private selectedProduct: BehaviorSubject<IProduct | null> =
+    new BehaviorSubject<IProduct | null>(null);
 
+  private isProductPopUpOpened: BehaviorSubject<boolean> =
+    new BehaviorSubject<boolean>(false);
   constructor(
     private http: HttpClient,
     private productsService: ProductsService
@@ -31,6 +35,19 @@ export class OrdersService {
       OrderDate: new Date().toISOString(),
       UserId: localStorage.getItem('userId') as string,
     };
+  }
+  getSelectedProduct() {
+    return this.selectedProduct.value;
+  }
+  getPopUpState(): Observable<any> {
+    return this.isProductPopUpOpened.asObservable();
+  }
+  toggleProductPopUp() {
+    this.isProductPopUpOpened.next(!this.isProductPopUpOpened.value);
+  }
+  selectProduct(product: IProduct) {
+    this.toggleProductPopUp();
+    this.selectedProduct.next(product);
   }
   getOrderProducts(products: { ProductId: number; Quantity: number }[]) {
     products.map((item) => {

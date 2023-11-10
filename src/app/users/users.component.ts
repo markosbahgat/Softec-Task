@@ -7,7 +7,7 @@ import { IUser, UsersService } from 'app/core';
   styleUrls: ['./users.component.scss'],
 })
 export class UsersComponent {
-  users: IUser[] = [];
+  public users: IUser[] = [];
 
   constructor(private usersService: UsersService) {}
 

@@ -3,7 +3,6 @@ import { IProduct, CartService } from 'app/core';
 
 @Component({
   selector: 'app-navbar',
-  // providers: [CartService],
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss'],
 })

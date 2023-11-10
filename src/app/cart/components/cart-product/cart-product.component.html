@@ -1,0 +1,55 @@
+<li class="flex py-6" *ngFor="let item of products">
+  <div class="flex-shrink-0">
+    <img
+      src="{{ item.ProductImg }}"
+      alt="Front side of mint cotton t-shirt with wavey lines pattern."
+      class="h-24 w-24 rounded-md object-cover object-center sm:h-32 sm:w-32"
+    />
+  </div>
+
+  <div class="ml-4 flex flex-1 flex-col sm:ml-6">
+    <div>
+      <div class="flex justify-between">
+        <h4 class="text-sm">
+          <a href="#" class="font-medium text-gray-700 hover:text-gray-800">{{
+            item.ProductName
+          }}</a>
+        </h4>
+        <p class="ml-4 text-sm font-medium text-gray-900">
+          $ {{ item.ProductPrice }}
+        </p>
+      </div>
+      <p class="mt-1 text-sm text-gray-500">Mint</p>
+      <p class="mt-1 text-sm text-gray-500">Medium</p>
+    </div>
+
+    <div class="mt-4 flex flex-1 items-start justify-between">
+      <p class="flex items-center space-x-2 text-sm text-gray-700">
+        <label for="quantity-0" class="sr-only">Quantity, Nomad Tumbler</label>
+        <select
+          id="quantity-0"
+          name="quantity-0"
+          (change)="onSelectChange($event, item.ProductId)"
+          class="block max-w-full rounded-md border border-gray-300 py-1.5 text-left text-base font-medium leading-5 text-gray-700 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500 sm:text-sm"
+        >
+          <option
+            [selected]="option === item.Quantity"
+            *ngFor="let option of options"
+            [value]="option"
+          >
+            {{ option }}
+          </option>
+        </select>
+      </p>
+      <div class="ml-4">
+        <button
+          type="button"
+          (click)="removeProductFromCart(item.ProductId)"
+          class="text-sm font-medium text-indigo-600 hover:text-indigo-500"
+        >
+          <span>Remove</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</li>

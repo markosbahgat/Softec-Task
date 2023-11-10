@@ -12,6 +12,7 @@
 
     <div class="mt-16" *ngFor="let order of orders">
       <app-order-card [order]="order"></app-order-card>
+      <app-product-popup *ngIf="isPopUpOpened"></app-product-popup>
     </div>
   </div>
 </div>

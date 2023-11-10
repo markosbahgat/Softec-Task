@@ -12,8 +12,8 @@ export interface AppState {
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  title = 'softec-task';
-  products$: Observable<IProduct[]> = new Observable<IProduct[]>();
+  private title = 'softec-task';
+  private products$: Observable<IProduct[]> = new Observable<IProduct[]>();
   constructor(private store: Store<AppState>) {
     this.products$ = this.store.select('products');
   }

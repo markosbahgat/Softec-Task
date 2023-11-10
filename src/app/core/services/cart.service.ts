@@ -27,6 +27,7 @@ export class CartService {
   getCartProducts(): Observable<any> {
     return this.products.asObservable();
   }
+
   getTotalPrice(): Observable<any> {
     return this.totalPrice.asObservable();
   }
