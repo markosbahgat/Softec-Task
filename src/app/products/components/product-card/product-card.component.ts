@@ -10,7 +10,7 @@ import { IProduct } from 'app/core';
 export class ProductCardComponent {
   @Input() item: IProduct | null = null;
   constructor(private cartService: CartService) {}
-  addProductToCart() {
+  addProductToCart(): void {
     this.cartService.addToCart(this.item as IProduct);
   }
 }

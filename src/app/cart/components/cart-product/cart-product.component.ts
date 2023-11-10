@@ -7,16 +7,16 @@ import { IProduct } from 'app/core';
   templateUrl: './cart-product.component.html',
   styleUrls: ['./cart-product.component.scss'],
 })
-export class CartProductComponent implements OnInit {
+export class CartProductComponent {
   @Input() products: IProduct[] = [];
   public options: number[] = [...Array(10).keys()].slice(1, 10);
   public selectedOption: number = this.options[0];
   constructor(private cartService: CartService) {}
-  removeProductFromCart(id: number) {
+  removeProductFromCart(id: number): void {
     this.cartService.removeFromCart(id);
   }
 
-  onSelectChange(event: Event, id: number) {
+  onSelectChange(event: Event, id: number): void {
     const selectedValue = Number((event.target as HTMLSelectElement).value);
     this.cartService.changeQuantity(id, selectedValue);
   }

@@ -21,12 +21,11 @@ export class AuthGuard implements CanActivate {
     state: RouterStateSnapshot
   ): boolean {
     console.log(next);
-    return this.checkLogin(state.url);
+    return this.checkLogin();
   }
 
-  checkLogin(url: string): boolean {
-    const protectedRoutes = ['/cart', '/users'];
-    if (this.authService.isAuthenticated() && protectedRoutes.includes(url)) {
+  checkLogin(): boolean {
+    if (this.authService.isAuthenticated()) {
       return true;
     } else {
       this.router.navigate(['/login']);

@@ -16,10 +16,10 @@ export class OrderCardComponent {
   @Input() order!: IExtendedOrder;
 
   constructor(private router: Router, private ordersService: OrdersService) {}
-  viewProduct(product: IProduct) {
+  protected viewProduct(product: IProduct): void {
     this.ordersService.selectProduct(product);
   }
-  toOrderPage(id: number) {
+  protected toOrderPage(id: number): void {
     this.router.navigate(['/order/' + id]);
   }
 }

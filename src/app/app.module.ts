@@ -11,10 +11,6 @@ import {
   GlobalErrorHandler,
 } from 'app/core';
 
-import { HomeComponent } from 'app/pages';
-
-import { StoreModule } from '@ngrx/store';
-import { cartReducer } from './reducers';
 import { ServerErrorInterceptor } from './core/interceptors/server-error.interceptor';
 
 @NgModule({
@@ -22,17 +18,9 @@ import { ServerErrorInterceptor } from './core/interceptors/server-error.interce
     AppComponent,
     NavbarComponent,
     LayoutComponent,
-    HomeComponent,
     FooterComponent,
   ],
-  imports: [
-    CommonModule,
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule,
-
-    StoreModule.forRoot({ cart: cartReducer }),
-  ],
+  imports: [CommonModule, BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [
     { provide: ErrorHandler, useClass: GlobalErrorHandler },
     {

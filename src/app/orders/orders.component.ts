@@ -23,7 +23,7 @@ export class OrdersComponent {
     private productsService: ProductsService,
     private router: Router
   ) {}
-  toOrderPage(id: number) {
+  toOrderPage(id: number): void {
     this.router.navigate(['/order/' + id]);
   }
 
